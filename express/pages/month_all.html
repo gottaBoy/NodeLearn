@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 ECharts 文件 -->
+    <!-- <script src="echarts.js"></script> -->
+    <script src="http://127.0.0.1:8081/js/echarts.js"></script>
+    <style>
+      *,body {
+          margin: 0;
+      }
+      #iphone{
+        margin: 0 auto;
+        height: 1334px;
+        width: 750px;
+        border: 1px solid red;
+        padding: 10px;
+      }
+      #main{
+        width: 100%;
+        height:100%;
+      }
+    </style>
+</head>
+<body>
+    <!-- http://efe.baidu.com/tags/ECharts/ -->
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="iphone">
+        <div id="main" style="width: 100%;height:100%;"></div>
+    </div>
+     
+     <script type="text/javascript">
+         // 基于准备好的dom，初始化echarts实例
+         var myChart = echarts.init(document.getElementById('main'));
+ 
+         // 指定图表的配置项和数据
+         var option = {
+            title : {
+                x: 'center',
+                text: '2018年月收入统计',
+                subtext: '单位(万元)'
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            // legend: {
+            //     data:['2018年']
+            // },
+            toolbox: {
+                show : false,
+                feature : {
+                    mark : {show: true},
+                    dataView : {show: true, readOnly: false},
+                    magicType: {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            calculable : true,
+            grid: {
+                borderWidth: 0,
+                y: 80,
+                y2: 60
+            },
+            xAxis : [
+                {
+                    show: false,
+                    type : 'value',
+                    position : 'top',
+                    boundaryGap : [0, 0.01]
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'category',
+                    data : ['十二月','十一月','十月','九月','八月','七月','六月','五月','四月','三月','二月','一月']
+                }
+            ],
+            series : [
+                {
+                    name:'2018年',
+                    type:'bar',
+                    itemStyle: {
+                        normal: {
+                            color: function(params) {
+                                // build a color map as your need.
+                                var colorList = [
+                                '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+                                '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+                                '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+                                ];
+                                return colorList[params.dataIndex]
+                            },
+                            label: {
+                                show: true,
+                                position: 'inside',
+                                formatter: '{c}' //{b}\n{c}
+                            }
+                        }
+                    },
+                    data:[750230, 650230, 630230, 630230, 529234, 429234, 493234, 431744, 304970, 290340, 234890, 182030]
+                }
+            ]
+        };
+                    
+         // 使用刚指定的配置项和数据显示图表。
+         myChart.setOption(option);
+     </script>
+</body>
+</html>

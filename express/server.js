@@ -11,10 +11,45 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({ dest: '/tmp/'}).array('image'));
- 
+
+app.get('/', function (req, res) {
+    console.log('index.html')
+   res.sendFile( __dirname + "/" + "index.html" );
+})
+
 app.get('/index.html', function (req, res) {
     console.log('index.html')
    res.sendFile( __dirname + "/" + "index.html" );
+})
+
+// shipper_month
+app.get('/shipper_month.html', function (req, res) {
+    console.log('shipper_month.html')
+   res.sendFile( __dirname + "/pages/" + "shipper_month.html" );
+})
+
+// month_shipper
+app.get('/month_shipper.html', function (req, res) {
+    console.log('month_shipper.html')
+   res.sendFile( __dirname + "/pages/" + "month_shipper.html" );
+})
+
+// month_all
+app.get('/month_all.html', function (req, res) {
+    console.log('month_all.html')
+   res.sendFile( __dirname + "/pages/" + "month_all.html" );
+})
+
+// echart
+app.get('/echart.html', function (req, res) {
+    console.log('echart.html')
+   res.sendFile( __dirname + "/pages/" + "echart.html" );
+})
+
+// demo1
+app.get('/demo1.html', function (req, res) {
+    console.log('demo1.html')
+   res.sendFile( __dirname + "/pages/" + "demo1.html" );
 })
 
 app.get('/process_get', function (req, res) {
