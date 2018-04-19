@@ -24,7 +24,7 @@ app.get('/index.html', function (req, res) {
 
 app.get('/qhb.html', function (req, res) {
     console.log('qhb.html')
-   res.sendFile( __dirname + "/" + "qhb.html" );
+   res.sendFile( __dirname + "/pages/" + "qhb.html" );
 })
 
 // shipper_month
