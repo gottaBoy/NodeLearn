@@ -22,6 +22,11 @@ app.get('/index.html', function (req, res) {
    res.sendFile( __dirname + "/" + "index.html" );
 })
 
+app.get('/qhb.html', function (req, res) {
+    console.log('qhb.html')
+   res.sendFile( __dirname + "/" + "qhb.html" );
+})
+
 // shipper_month
 app.get('/shipper_month.html', function (req, res) {
     console.log('shipper_month.html')
